@@ -5,8 +5,8 @@
 
 export const Colors = {
   light: {
+    background: 'rgb(253, 253, 253)', // Share this color across components
     text: '#2D3436',
-    background: 'rgb(240, 240, 240)',
     primary: '#5D52D9',
     secondary: '#636E72',
     accent: '#4834D4',
