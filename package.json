@@ -5,9 +5,9 @@
   "scripts": {
     "start": "npx expo start --web",
     "dev": "npx expo start --web",
-    "build": "expo export:web",
+    "build": "expo export",
     "test": "jest --watchAll",
-    "vercel-build": "expo export:web"
+    "vercel-build": "expo export"
   },
   "jest": {
     "preset": "jest-expo"
@@ -37,9 +37,7 @@
     "@babel/core": "^7.26.0",
     "@types/react": "~18.3.12",
     "expo-cli": "^6.3.12",
-    "typescript": "^5.3.0",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1"
+    "typescript": "^5.3.0"
   },
   "private": true
 }
