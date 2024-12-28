@@ -10,16 +10,7 @@ export default function Hero() {
       <View style={styles.content as ViewStyle}>
         <ReactTyped
           backSpeed={50}
-          onBegin={function noRefCheck(){}}
           onComplete={function noRefCheck(){}}
-          onDestroy={function noRefCheck(){}}
-          onLastStringBackspaced={function noRefCheck(){}}
-          onReset={function noRefCheck(){}}
-          onStart={function noRefCheck(){}}
-          onStop={function noRefCheck(){}}
-          onStringTyped={function noRefCheck(){}}
-          onTypingPaused={function noRefCheck(){}}
-          onTypingResumed={function noRefCheck(){}}
           strings={[
             `Hi I'm <span style="color:${Colors.light.primary};">Miguel Sotomayor</span>, Senior <span style="color:${Colors.light.primary};">Data</span> Engineer and <span style="color:${Colors.light.primary};">Data</span> Lead.<br>Please, scroll down to know more about me.`,
           ]}
@@ -32,23 +23,21 @@ export default function Hero() {
   );
 }
 
-// const TextComponent = ({ children }: { children?: React.ReactNode }) => (
-//   <View>
-//     <span style={styles.typedText as TextStyle}>{children}</span>
-//   </View>
-// );
-
 const styles = StyleSheet.create({
   container: {
-    minHeight: '100%',
-    height: '100%',
-    justifyContent: 'center',
+    height: '100vh', // Full height of the viewport
+    justifyContent: 'center', // Center content vertically
+    alignItems: 'center', // Center content horizontally
     paddingHorizontal: '5%',
-    paddingVertical: 40,
+    paddingVertical: 20,
+    overflow: 'hidden', // Prevent scrolling
+    marginTop: 0, // Ensure there's no margin at the top
   },
   content: {
     maxWidth: 1200,
-    alignSelf: 'flex-start',
+    width: '100%',
+    alignSelf: 'center', // Center horizontally
+    textAlign: 'center', // Align text in the center
   } as ViewStyle,
   typedText: {
     fontFamily: 'RobotoMono',
