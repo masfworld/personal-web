@@ -33,6 +33,7 @@ export default {
       bundler: "metro",
       output: "static",
       favicon: "./assets/images/favicon.png",
+      staticDirectory: "public",
       themeColor: "#4CAF50",
       title: "Personal Web - Miguel Sotomayor",
       description: "A modern personal portfolio showcasing skills, experience, and projects.",
