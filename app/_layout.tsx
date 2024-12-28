@@ -10,6 +10,8 @@ import Hero from '@/components/Hero';
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
+import { Analytics } from '@vercel/analytics/dist/react';
+import { SpeedInsights } from "@vercel/speed-insights/dist/react"
 
 SplashScreen.preventAutoHideAsync();
 Animatable.initializeRegistryWithDefinitions(animations);
@@ -34,6 +36,8 @@ export default function Layout({ children }: PropsWithChildren) {
 
   return (
     <View style={styles.container as ViewStyle}>
+      <Analytics />
+      <SpeedInsights />
       <BackgroundImage />
       <NavigationMenu />
       <View style={styles.content as ViewStyle}>
