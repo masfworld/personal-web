@@ -30,7 +30,7 @@ export default function ProjectsSection() {
   }, []);
   // Concatenate all projects into one string with proper formatting
   const projectsString = `
-    <span style="font-size:24px; color:${Colors.light.primary}; font-weight:bold;">Projects & Collaborations</span><br><br>
+    <span style="font-size:20px; color:${Colors.light.primary}; font-weight:bold;">Projects & Collaborations</span><br><br>
     <span style="color:${Colors.light.primary};">Debezium Contribution</span><br>
     Adding a new feature to Debezium open source: <a href="https://medium.com/engineering-at-birdie/diving-deeper-birdies-latest-contribution-to-debezium-open-source-project-autoset-replica-3fbfb59e58dd" style="color:${Colors.light.primary}; text-decoration:underline;">Read more</a><br><br>
     <span style="color:${Colors.light.primary};">Apache Spark Lecturer</span><br>
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   typedText: {
     fontFamily: 'RobotoMono',
-    fontSize: 20,
+    fontSize: 15,
     letterSpacing: 0.5,
     color: Colors.light.text,
     textAlign: 'left', // Align text to the left

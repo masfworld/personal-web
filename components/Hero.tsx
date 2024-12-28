@@ -41,8 +41,9 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   typedText: {
     fontFamily: 'RobotoMono',
-    fontSize: 30,
+    fontSize: 20,
     letterSpacing: 0.5,
     color: Colors.light.text,
+    textAlign: 'left', // Align text to the left
   } as TextStyle,
 });

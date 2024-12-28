@@ -1,4 +1,4 @@
-# Personal Website - Miguel Sotomayor
+# Personal Web Portfolio
 
 A personal portfolio website built with Expo and React Native Web.
 
@@ -63,6 +63,20 @@ npm run reset-project
 ```
 
 This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+
+## 🚀 Deployment with Vercel
+
+### Prerequisites
+- GitHub account
+- Vercel account
+- Project pushed to GitHub
+
+### Steps
+
+1. Install Vercel CLI:
+```bash
+npm i -g vercel
+```
 
 ## Learn more
 

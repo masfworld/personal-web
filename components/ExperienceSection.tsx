@@ -31,7 +31,7 @@ export default function ExperienceSection() {
 
   // Concatenate all experiences into one string with proper formatting
   const experienceString = `
-    <span style="font-size:24px; color:${Colors.light.primary}; font-weight:bold;">Experience</span><br><br>
+    <span style="font-size:20px; color:${Colors.light.primary}; font-weight:bold;">Experience</span><br><br>
     <span style="color:${Colors.light.primary};">Big Data Lead</span> at ODS (2025 - Present)<br>
     Leading Big Data engineering projects and building scalable data platforms. Apache Spark and AWS<br><br>
     <span style="color:${Colors.light.primary};">Senior Data Engineer Lead</span> at Birdie (2021 - 2024)<br>
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   } as ViewStyle,
   typedText: {
     fontFamily: 'RobotoMono',
-    fontSize: 20,
+    fontSize: 15,
     letterSpacing: 0.5,
     color: Colors.light.text,
     textAlign: 'left', // Align text to the left
