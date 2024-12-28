@@ -1,9 +1,9 @@
 import React, { useEffect, PropsWithChildren } from 'react';
-import { View, StyleSheet, ViewStyle, Platform } from 'react-native';
+import { View, StyleSheet, ViewStyle } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Animatable from 'react-native-animatable';
-import { animations } from '@/constants/animations';
+import { HelmetProvider, Helmet } from 'react-native-helmet-async';
 import NavigationMenu from '@/components/NavigationMenu';
 import BackgroundImage from '@/components/ui/BackgroundImage';
 import Hero from '@/components/Hero';
@@ -11,7 +11,8 @@ import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectsSection';
 import ContactSection from '@/components/ContactSection';
 import { Analytics } from '@vercel/analytics/dist/react';
-import { SpeedInsights } from "@vercel/speed-insights/dist/react"
+import { SpeedInsights } from '@vercel/speed-insights/dist/react';
+import { animations } from '@/constants/animations';
 
 SplashScreen.preventAutoHideAsync();
 Animatable.initializeRegistryWithDefinitions(animations);
@@ -35,21 +36,33 @@ export default function Layout({ children }: PropsWithChildren) {
   }
 
   return (
-    <View style={styles.container as ViewStyle}>
-      <Analytics />
-      <SpeedInsights />
-      <BackgroundImage />
-      <NavigationMenu />
-      <View style={styles.content as ViewStyle}>
-        <View style={styles.mainContent as ViewStyle}>
-          <Hero />
-          <ExperienceSection />
-          <ProjectsSection />
-          <ContactSection />
-          {children}
+    <HelmetProvider>
+      <Helmet>
+        <title>Miguel Sotomayor - Senior Data Engineer</title>
+        <meta name="description" content="A modern personal portfolio showcasing skills, experience, and projects." />
+        <meta name="keywords" content="Miguel Sotomayor, Data Engineer, Portfolio, Projects, Experience" />
+        <meta name="author" content="Miguel Sotomayor" />
+        <meta property="og:title" content="Miguel Sotomayor - Senior Data Engineer" />
+        <meta property="og:description" content="A modern personal portfolio showcasing skills, experience, and projects." />
+        <meta property="og:url" content="https://miguel.sidesna.com" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <View style={styles.container as ViewStyle}>
+        <Analytics />
+        <SpeedInsights />
+        <BackgroundImage />
+        <NavigationMenu />
+        <View style={styles.content as ViewStyle}>
+          <View style={styles.mainContent as ViewStyle}>
+            <Hero />
+            <ExperienceSection />
+            <ProjectsSection />
+            <ContactSection />
+            {children}
+          </View>
         </View>
       </View>
-    </View>
+    </HelmetProvider>
   );
 }
 
