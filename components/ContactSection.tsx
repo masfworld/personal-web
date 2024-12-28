@@ -2,12 +2,16 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import { Colors } from '@/constants/Colors';
 import ReCAPTCHA from 'react-google-recaptcha';
+import emailjs from '@emailjs/browser';
 
 export default function ContactSection() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState(false);
 
   const handleCaptchaChange = (value: string | null) => {
     if (value) {
@@ -17,24 +21,33 @@ export default function ContactSection() {
     }
   };
 
-  const handleSubmit = () => {
-    if (!captchaVerified) {
-      alert('Please verify the CAPTCHA.');
-      return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+    
+    try {
+      await emailjs.send(
+        process.env.EXPO_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.EXPO_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          from_name: name,
+          from_email: email,
+          message: message,
+        },
+        process.env.EXPO_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+      
+      setSuccess(true);
+      setName('');
+      setEmail('');
+      setMessage('');
+      setCaptchaVerified(false);
+    } catch (err) {
+      setError('Failed to send message. Please try again.');
+    } finally {
+      setLoading(false);
     }
-
-    if (!name || !email || !message) {
-      alert('All fields are required.');
-      return;
-    }
-
-    alert('Message sent successfully!');
-    // You can integrate your email backend or API call here
-    // Reset form
-    setName('');
-    setEmail('');
-    setMessage('');
-    setCaptchaVerified(false);
   };
 
   return (
@@ -71,16 +84,22 @@ export default function ContactSection() {
         />
         <View style={styles.captcha}>
           <ReCAPTCHA
-            sitekey="your-site-key" // Replace with your Google reCAPTCHA site key
+            sitekey={process.env.EXPO_PUBLIC_RECAPTCHA_SITE_KEY!}
             onChange={handleCaptchaChange}
+            theme="light"
+            size="normal"
           />
         </View>
         <Button
-          title="Send Message"
+          title={loading ? "Sending..." : "Send Message"}
           onPress={handleSubmit}
-          disabled={!captchaVerified}
+          disabled={!captchaVerified || loading}
           color={Colors.light.primary}
         />
+        {error && <Text style={styles.error}>{error}</Text>}
+        {success && (
+          <Text style={styles.success}>Message sent successfully!</Text>
+        )}
       </View>
     </View>
   );
@@ -131,4 +150,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 20,
   } as ViewStyle,
+  error: {
+    color: 'red',
+    textAlign: 'center',
+    marginTop: 10,
+  } as TextStyle,
+  success: {
+    color: 'green',
+    textAlign: 'center',
+    marginTop: 10,
+  } as TextStyle,
 });

@@ -13,10 +13,12 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@expo-google-fonts/roboto-mono": "^0.2.3",
     "@expo/vector-icons": "^14.0.4",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
+    "dotenv": "^16.4.7",
     "expo": "^52.0.23",
     "expo-constants": "~17.0.3",
     "expo-font": "~13.0.2",
