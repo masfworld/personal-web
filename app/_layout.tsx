@@ -53,16 +53,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(253, 253, 253)',
+    overflow: 'hidden', // Prevent scroll access to menu
+    position: 'relative',
+    width: '100%',
   },
   content: {
     flex: 1,
     position: 'relative',
-    overflow: 'scroll',
-    height: 'auto',
-  },
+    overflowX: 'hidden', // Prevent horizontal scroll
+    overflowY: 'auto', // Allow vertical scroll
+  } as ViewStyle,
   mainContent: {
     marginLeft: '20%',
     width: '80%',
     paddingLeft: 30,
-  },
+  } as ViewStyle,
 });
