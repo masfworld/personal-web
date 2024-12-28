@@ -1,60 +1,42 @@
-import { Text, type TextProps, StyleSheet } from 'react-native';
+import { Text, TextProps, StyleSheet } from 'react-native';
+import { Fonts } from '@/constants/Fonts';
 
-import { useThemeColor } from '@/hooks/useThemeColor';
-
-export type ThemedTextProps = TextProps & {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+type ThemedTextProps = TextProps & {
+  type?: 'title' | 'subtitle' | 'defaultSemiBold' | 'link' | 'default';
 };
 
-export function ThemedText({
-  style,
-  lightColor,
-  darkColor,
-  type = 'default',
-  ...rest
-}: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
+export function ThemedText({ type = 'default', style, ...props }: ThemedTextProps) {
   return (
-    <Text
+    <Text 
+      {...props} 
       style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
-        style,
-      ]}
-      {...rest}
+        styles.defaultText,
+        type === 'title' && styles.titleText,
+        type === 'subtitle' && styles.subtitleText,
+        type === 'defaultSemiBold' && styles.defaultSemiBoldText,
+        type === 'link' && styles.linkText,
+        style
+      ]} 
     />
   );
 }
 
 const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
+  defaultText: {
+    fontFamily: Fonts.default,
   },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
-  },
-  title: {
+  titleText: {
     fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    fontFamily: Fonts.bold,
   },
-  subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  subtitleText: {
+    fontSize: 24,
+    fontFamily: Fonts.medium,
   },
-  link: {
-    lineHeight: 30,
-    fontSize: 16,
-    color: '#0a7ea4',
+  defaultSemiBoldText: {
+    fontFamily: Fonts.semiBold,
+  },
+  linkText: {
+    textDecorationLine: 'underline',
   },
 });
