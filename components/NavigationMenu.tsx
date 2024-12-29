@@ -7,6 +7,7 @@ import HamburgerButton from './ui/HamburgerButton';
 const menuItems = [
   { label: 'Home', href: 'home' },
   { label: 'Experience', href: 'experience' },
+  { label: 'Technologies', href: 'tech' },
   { label: 'Projects', href: 'projects' },
   { label: 'Contact', href: 'contact' },
 ];
