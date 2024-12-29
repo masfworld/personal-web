@@ -13,6 +13,7 @@ import ContactSection from '@/components/ContactSection';
 import { Analytics } from '@vercel/analytics/dist/react';
 import { SpeedInsights } from '@vercel/speed-insights/dist/react';
 import { animations } from '@/constants/animations';
+import TechSection from '@/components/TechSection';
 
 SplashScreen.preventAutoHideAsync();
 Animatable.initializeRegistryWithDefinitions(animations);
@@ -58,6 +59,7 @@ export default function Layout({ children }: PropsWithChildren) {
           <View style={styles.mainContent as ViewStyle}>
             <Hero />
             <ExperienceSection />
+            <TechSection />
             <ProjectsSection />
             <ContactSection />
             {children}
