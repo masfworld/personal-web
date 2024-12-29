@@ -1,5 +1,5 @@
 import React, { useEffect, PropsWithChildren } from 'react';
-import { View, StyleSheet, ViewStyle } from 'react-native';
+import { View, StyleSheet, ViewStyle, Dimensions } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Animatable from 'react-native-animatable';
@@ -16,6 +16,8 @@ import { animations } from '@/constants/animations';
 
 SplashScreen.preventAutoHideAsync();
 Animatable.initializeRegistryWithDefinitions(animations);
+
+const screenWidth = Dimensions.get('window').width;
 
 export default function Layout({ children }: PropsWithChildren) {
   const [fontsLoaded, error] = useFonts({
@@ -66,23 +68,25 @@ export default function Layout({ children }: PropsWithChildren) {
   );
 }
 
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgb(253, 253, 253)',
-    overflow: 'hidden', // Prevent scroll access to menu
+    overflow: 'hidden',
     position: 'relative',
     width: '100%',
   },
   content: {
     flex: 1,
     position: 'relative',
-    overflowX: 'hidden', // Prevent horizontal scroll
-    overflowY: 'auto', // Allow vertical scroll
+    overflowX: 'hidden',
+    overflowY: 'auto',
+    marginTop: screenWidth <= 768 ? 0 : 0, // No extra margin since image has its own container for small screens
   } as ViewStyle,
   mainContent: {
-    marginLeft: '20%',
-    width: '80%',
-    paddingLeft: 30,
+    marginLeft: screenWidth > 768 ? '20%' : 0,
+    width: screenWidth > 768 ? '80%' : '100%',
+    paddingHorizontal: screenWidth <= 768 ? 20 : 30, // Adjust padding for small screens
   } as ViewStyle,
 });

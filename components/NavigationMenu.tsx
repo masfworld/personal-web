@@ -51,19 +51,18 @@ export default function NavigationMenu() {
 
 const styles = StyleSheet.create({
   container: {
-    position: 'absolute', // Adjusted for React Native
+    position: 'absolute',
     right: 0,
     top: 0,
     bottom: 0,
     width: 200,
     zIndex: 99,
-    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    backgroundColor: 'rgba(228, 228, 228, 0.95)', // #6d6d6d with 0.95 opacity
     shadowColor: '#000',
     shadowOffset: { width: -10, height: 0 },
     shadowOpacity: 0.1,
     shadowRadius: 30,
     transform: [{ translateX: '100%' }],
-    transition: 'transform 0.3s ease',
   },
   menuContent: {
     flex: 1,

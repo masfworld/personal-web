@@ -61,14 +61,12 @@ export default function ContactSection() {
         <TextInput
           style={styles.input}
           placeholder="Your Name"
-          placeholderTextColor={Colors.light.textSecondary}
           value={name}
           onChangeText={setName}
         />
         <TextInput
           style={styles.input}
           placeholder="Your Email"
-          placeholderTextColor={Colors.light.textSecondary}
           keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
@@ -76,7 +74,6 @@ export default function ContactSection() {
         <TextInput
           style={[styles.input, styles.textArea]}
           placeholder="Your Message"
-          placeholderTextColor={Colors.light.textSecondary}
           multiline
           numberOfLines={4}
           value={message}
