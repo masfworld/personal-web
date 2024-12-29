@@ -35,7 +35,7 @@ export default {
       favicon: "./assets/images/favicon.png",
       staticDirectory: "public",
       themeColor: "#4CAF50",
-      title: "Personal Web - Miguel Sotomayor",
+      title: "Miguel Sotomayor - Senior Data Engineer",
       description: "A modern personal portfolio showcasing skills, experience, and projects.",
     },
     plugins: [
