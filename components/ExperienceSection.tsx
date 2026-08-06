@@ -32,7 +32,9 @@ export default function ExperienceSection() {
   // Concatenate all experiences into one string with proper formatting
   const experienceString = `
     <span style="font-size:20px; color:${Colors.light.primary}; font-weight:bold;">Experience</span><br><br>
-    <span style="color:${Colors.light.primary};">Big Data Lead</span> at <a href="https://www.opendigitalservices.com/" style="color:${Colors.light.primary}; text-decoration:underline;">ODS</a> (2025 - Present)<br>
+    <span style="color:${Colors.light.primary};">Senior Data Engineer</span> at <a href="https://glassnode.com/" style="color:${Colors.light.primary}; text-decoration:underline;">Glassnode</a> (2025 - Present)<br>
+    Building data platforms and analytics for on-chain digital asset intelligence.<br><br>
+    <span style="color:${Colors.light.primary};">Big Data Lead</span> at <a href="https://www.opendigitalservices.com/" style="color:${Colors.light.primary}; text-decoration:underline;">ODS</a> (2025)<br>
     Leading Big Data engineering projects and building scalable data platforms. Apache Spark and AWS<br><br>
     <span style="color:${Colors.light.primary};">Senior Data Engineer Lead</span> at <a href="https://www.birdie.care/" style="color:${Colors.light.primary}; text-decoration:underline;">Birdie</a> (2021 - 2024)<br>
     Developed ETL pipelines and optimized data workflows using DBT, Snowflake, Kafka and AWS.<br><br>
